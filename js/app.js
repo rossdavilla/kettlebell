@@ -68,8 +68,8 @@
     equipmentRow: $('equipment-row'), levelRow: $('level-row'), categoryRow: $('category-row'),
     generateBtn: $('generate-btn'), exerciseList: $('exercise-list'), workoutCount: $('workout-count'),
     targetRow: $('target-row'), rtActive: $('rt-active'), rtDone: $('rt-done'),
-    rtCount: $('rt-count'), rtNum: $('rt-num'), rtOf: $('rt-of'), rtDots: $('rt-dots'), rtUndo: $('rt-undo'),
-    rtFinishBtn: $('rt-finish-btn'), rtFinishText: $('rt-finish-text'), rtDoneLabel: $('rt-done-label'),
+    rtNum: $('rt-num'), rtOf: $('rt-of'), rtDots: $('rt-dots'),
+    rtMinus: $('rt-minus'), rtPlus: $('rt-plus'), rtDoneLabel: $('rt-done-label'),
     rtRestartBtn: $('rt-restart-btn'), rtNewBtn: $('rt-new-btn')
   };
 
@@ -262,9 +262,7 @@
       dot.className = 'rt-dot' + (i < state.roundsCompleted ? ' done' : '');
       el.rtDots.appendChild(dot);
     }
-    el.rtUndo.hidden = state.roundsCompleted === 0;
-    var remaining = state.targetRounds - state.roundsCompleted;
-    el.rtFinishText.textContent = remaining === 1 ? 'Finish Workout' : 'Round ' + (state.roundsCompleted + 1) + ' Finished';
+    el.rtMinus.disabled = state.roundsCompleted === 0;
   }
 
   function finishRound(){
@@ -285,9 +283,8 @@
 
   // ---------- Wire up ----------
   el.generateBtn.addEventListener('click', generateWorkout);
-  el.rtFinishBtn.addEventListener('click', finishRound);
-  el.rtCount.addEventListener('click', undoRound);
-  el.rtUndo.addEventListener('click', undoRound);
+  el.rtPlus.addEventListener('click', finishRound);
+  el.rtMinus.addEventListener('click', undoRound);
   el.rtRestartBtn.addEventListener('click', function(){
     state.roundsCompleted = 0;
     renderRoundTracker();

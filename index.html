@@ -58,16 +58,19 @@
       <div class="target-row" id="target-row" aria-label="Target rounds"></div>
     </div>
     <div class="rt" id="rt-active">
-      <button class="rt-count" id="rt-count" aria-label="Undo last round">
-        <span class="rt-num" id="rt-num">0</span><span class="rt-of" id="rt-of">/ 4</span>
-      </button>
+      <div class="rt-stepper">
+        <button class="rt-step minus" id="rt-minus" aria-label="Remove a round">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+        </button>
+        <div class="rt-count" aria-live="polite">
+          <span class="rt-num" id="rt-num">0</span><span class="rt-of" id="rt-of">/ 4</span>
+        </div>
+        <button class="rt-step plus" id="rt-plus" aria-label="Add a finished round">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
+        </button>
+      </div>
       <div class="rt-label">Rounds complete</div>
       <div class="rt-dots" id="rt-dots"></div>
-      <button class="rt-undo" id="rt-undo" hidden>Undo last round</button>
-      <button class="primary-btn" id="rt-finish-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L20 7" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span id="rt-finish-text">Round 1 Finished</span>
-      </button>
     </div>
     <div class="rt" id="rt-done" hidden>
       <div class="rt-badge"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L20 7" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
